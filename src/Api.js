@@ -5,3 +5,5 @@ let api = axios.create({
     'Client-ID' : 'o59cafuz33azcvoshbbu883lafaceu'
   }
 })
+
+export default api
