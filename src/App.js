@@ -1,10 +1,14 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+
+import Games from './components/Games'
 
 function App() {
   return (
-    <h1>
-      Twitch Approach
-    </h1>
+    <Router>
+      <Route exact path='/' component={Games} />
+    </Router>
   );
 }
 
