@@ -6,7 +6,7 @@ function Games() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await api.get('https://api.twitch.tv/helix/search/channels?query=a_seagull')
+      const result = await api.get('https://api.twitch.tv/helix/games/top')
 
       console.log(result.data)
     }
