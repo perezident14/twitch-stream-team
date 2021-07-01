@@ -6,7 +6,7 @@ function Header() {
     <div>
       <h1>Twitch Approach</h1>
 
-      <Link to='/'>Top Games</Link>
+      <Link to='/'>Top Games</Link><br />
       <Link to='/top-streams'>Top Streams</Link>
     </div>
   )

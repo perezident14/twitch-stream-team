@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Games() {
+  const [games, setGames] = useState([])
+
   return (
     <div>
-      games component
+      <h1>Most Popular Games</h1>
+
+      
     </div>
   )
 }
