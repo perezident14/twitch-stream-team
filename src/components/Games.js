@@ -18,7 +18,7 @@ function Games() {
 
   return (
     <div>
-      <h1>Most Popular Games</h1>
+      <h1>Home Page Filler</h1>
     </div>
   )
 }

@@ -4,14 +4,18 @@ import ReactDOM from 'react-dom'
 
 import Header from './components/Header'
 import Games from './components/Games'
-import Streams from './components/Streams'
+import Live from './components/Live'
+import CreatorsContainer from './containers/CreatorsContainer'
+import Contact from './components/Contact'
 
 function App() {
   return (
     <Router>
       <Header />
       <Route exact path='/' component={Games} />
-      <Route exact path='/top-streams' component={Streams} />
+      <Route exact path='/live' component={Live} />
+      <Route exact path='/creators' component={CreatorsContainer} />
+      <Route exact path='/contact' component={Contact} />
     </Router>
   );
 }

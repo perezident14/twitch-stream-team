@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import './header.css'
+
 function Header() {
   return (
     <div>
-      <h1>Astro Collective</h1>
+      <h1><Link to='/'>Astro Collective</Link></h1>
 
       <Link to='/live'>Live</Link>
       <Link to='/creators'>Creators</Link>
