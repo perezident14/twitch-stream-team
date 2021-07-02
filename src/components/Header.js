@@ -5,14 +5,26 @@ import './header.css'
 
 function Header() {
   return (
-    <div>
-      <h1><Link to='/'>Astro Collective</Link></h1>
+    <nav className='navbar'>
+      <div className='navbar-container'>
+        <Link to='/' className='team-logo'>Astro Collective</Link>
 
-      <Link to='/live'>Live</Link>
-      <Link to='/creators'>Creators</Link>
-      <Link to='/shop'>Shop</Link>
-      <Link to='/contact'>Contact</Link>
-    </div>
+        <ul className='nav-menu'>
+          <li className='nav-item'>
+            <Link to='/live' className='nav-link'>Live</Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/creators' className='nav-link'>Creators</Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/shop' className='nav-link'>Shop</Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/contact' className='nav-link'>Contact</Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   )
 }
 
