@@ -14,7 +14,15 @@
 }
 
 .team-logo {
+  color: white;
+  text-decoration: none;
   padding: 0 15px;
+}
+
+.team-logo:hover {
+  color: orange;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
 }
 
 .nav-menu {
