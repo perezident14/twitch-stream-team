@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 function Header() {
   return (
     <div>
-      <h1>Twitch Approach</h1>
+      <h1>Astro Collective</h1>
 
-      <Link to='/'>Top Games</Link><br />
-      <Link to='/top-streams'>Top Streams</Link>
+      <Link to='/live'>Live</Link>
+      <Link to='/creators'>Creators</Link>
+      <Link to='/shop'>Shop</Link>
+      <Link to='/contact'>Contact</Link>
     </div>
   )
 }
