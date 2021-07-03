@@ -5,15 +5,15 @@ function Games() {
   const [games, setGames] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
+    // const fetchData = async () => {
       // const result = await api.get('https://api.twitch.tv/helix/teams?name=astro')
       // const result = await api.get('https://api.twitch.tv/helix/users?login=perezident14')
-      const result = await api.get('https://api.twitch.tv/helix/chat/emotes?broadcaster_id=52770049')
+      // const result = await api.get('https://api.twitch.tv/helix/chat/emotes?broadcaster_id=52770049')
 
-      console.log(result.data)
-    }
+      // console.log(result.data)
+    // }
 
-    fetchData()
+    // fetchData()
   })
 
   return (
