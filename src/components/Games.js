@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import api from '../api'
 
-function Games() {
-  const [games, setGames] = useState([])
+function Games(props) {
 
-  useEffect(() => {
+  return (
+    <div>
+      <img src={props.astro.avi} alt='astro collective' />
+      <br />
+      {props.astro.displayName}
+      <br />
+      {props.astro.established}
+      <br />
+      {props.astro.creators.map(creator => {
+        return (
+          <p>{creator.user_login}</p>
+        )
+      })}
+    </div>
+  )
+}
+
+export default Games
+
+  // useEffect(() => {
     // const fetchData = async () => {
       // const result = await api.get('https://api.twitch.tv/helix/teams?name=astro')
       // const result = await api.get('https://api.twitch.tv/helix/users?login=perezident14')
@@ -14,13 +31,4 @@ function Games() {
     // }
 
     // fetchData()
-  })
-
-  return (
-    <div>
-      <h1>Home Page Filler</h1>
-    </div>
-  )
-}
-
-export default Games
+  // })
