@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import api from './api'
 
 import Header from './components/Header'

@@ -7,7 +7,7 @@ class CreatorsContainer extends Component {
   constructor() {
     super()
     this.state = {
-      page: 1
+      i: 1
     }
   }
 
@@ -16,13 +16,13 @@ class CreatorsContainer extends Component {
       <div>
         <h1>{this.props.astro.displayName}</h1>
 
-        {/* <InfiniteScroll> */}
+        <InfiniteScroll>
           {this.props.astro.creators.map(creator => {
             return (
               <Creator name={creator.user_login} />
             )
           })}
-        {/* </InfiniteScroll> */}
+        </InfiniteScroll>
       </div>
     )
   }
