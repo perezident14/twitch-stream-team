@@ -8,7 +8,6 @@ function Creator(props) {
   useEffect(() => {
     const fetchData = async () => {
       const info = await api.get(`https://api.twitch.tv/helix/users?login=${props.name}`)
-      // console.log(info.data.data[0])
       setCreator(info.data.data[0])
     }
     fetchData()
