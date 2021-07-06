@@ -22,7 +22,7 @@
 .streamer-card:hover {
   background: orange;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .streamer-image {

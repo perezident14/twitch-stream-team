@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import api from './api'
 
 import Header from './components/Header'
-import Games from './components/Games'
+import Home from './components/Home'
 import Live from './components/Live'
 import StreamersContainer from './containers/StreamersContainer'
 import Contact from './components/Contact'
@@ -27,7 +27,6 @@ class App extends Component {
 
   fetchData = async () => {
     const result = await api.get('https://api.twitch.tv/helix/teams?name=astro')
-    console.log(result.data.data[0])
     this.setState({
       displayName: result.data.data[0].team_display_name,
       avi: result.data.data[0].thumbnail_url,
@@ -40,13 +39,9 @@ class App extends Component {
     if (creator.user_login !== 'astrogaming') {
       const result = await api.get(`https://api.twitch.tv/helix/users?login=${creator.user_login}`)
       this.setState(prevState => ({
-        streamers: [...prevState.streamers, result.data.data[0]]
+        streamers: [...prevState.streamers, result.data.data[0]].sort(this.alphabetize)
       }))
     }
-    
-    this.setState(prevState => ({
-      streamers: prevState.streamers.sort(this.alphabetize)
-    }))
   }
 
   alphabetize(a, b) {
@@ -62,8 +57,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Header />
-        <Route exact path='/' component={() => <Games astro={this.state} />} />
+        <Header astro={this.state} />
+        <Route exact path='/' component={() => <Home astro={this.state} />} />
         <Route exact path='/live' component={Live} />
         <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
         <Route exact path='/contact' component={Contact} />

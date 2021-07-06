@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './header.css'
+import './Header.css'
 
-function Header() {
+function Header(props) {
   return (
     <nav className='navbar'>
       <div className='navbar-container'>
-        <Link to='/' className='team-logo'>Astro Collective</Link>
+        <Link to='/' >
+          <img className='team-logo' src={props.astro.avi} alt='team logo' />
+        </Link>
 
         <ul className='nav-menu'>
           <li className='nav-item'>
