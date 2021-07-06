@@ -1,3 +1,13 @@
+.card-link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+
 .streamer-card {
   align-items: center;
   text-align: center;
@@ -5,15 +15,18 @@
   min-width: 250px;
   width: 25%;
   padding: 20px;
+  text-decoration: none;
+  color: black;
 }
 
 .streamer-card:hover {
   background: orange;
   cursor: pointer;
+  transition: all 0.2s ease-out;
 }
 
 .streamer-image {
-  width: 90%;
+  width: 80%;
   margin: 10px;
   border-radius: 50%;
 }
