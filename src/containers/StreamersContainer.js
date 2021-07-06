@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './StreamersContainer.css'
 
 import StreamerCard from '../components/StreamerCard'
 
@@ -11,16 +12,16 @@ class CreatorsContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className='streamers-container'>
         <h1>{this.props.astro.displayName}</h1>
 
-        <ul>
+        <div className='streamer-cards'>
           {this.props.astro.streamers.map(streamer => {
             return (
               <StreamerCard streamer={streamer} />
             )
           })}
-        </ul>
+        </div>
       </div>
     )
   }

@@ -1,0 +1,19 @@
+.streamers-container {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.streamers-container > h1 {
+  font-size: 40px;
+}
+
+.streamer-cards {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center; /**/
+  align-items: center; /**/
+}
