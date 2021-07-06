@@ -7,14 +7,16 @@ class CreatorsContainer extends Component {
   constructor() {
     super()
     this.state = {
-      i: 1
+      creator: ''
     }
   }
 
   handleClick = e => {
-    // this.setState({
-      
-    // })
+    console.log(e.currentTarget.value)
+
+    this.setState({
+      creator: e.target.value
+    })
   }
 
   render() {
@@ -22,13 +24,15 @@ class CreatorsContainer extends Component {
       <div>
         <h1>{this.props.astro.displayName}</h1>
 
-        {this.props.astro.creators.map(creator => {
-          return (
-            <li>
-              {creator.user_login}
-            </li>
-          )
-        })}
+        <ul>
+          {this.props.astro.creators.map(creator => {
+            return (
+              <div onMouseDown={this.handleClick} value={creator.user_login} key={creator.user_id}>
+                {creator.user_login}
+              </div>
+            )
+          })}
+        </ul>
       </div>
     )
   }
