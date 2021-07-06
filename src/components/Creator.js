@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import api from '../api'
+import React from 'react'
 
 function Creator(props) {
   return (
     <div>
-      {props.streamer.login}
+      <img src={props.streamer.profile_image_url} />
+
+      <h1>{props.streamer.display_name}</h1>
+
+      <h3>Bio:</h3>
+      <p>{props.streamer.description}</p>
+
+      <a href={`https://twitch.tv/${props.streamer.login}`}>Profile</a>
     </div>
   )
 }

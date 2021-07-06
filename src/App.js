@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-// import ReactDOM from 'react-dom'
 import api from './api'
 
 import Header from './components/Header'
@@ -19,31 +18,31 @@ class App extends Component {
     streamers: []
   }
 
-  componentDidMount() {
-    const fetchData = async () => {
-      const result = await api.get('https://api.twitch.tv/helix/teams?name=astro')
-      console.log(result.data.data[0])
-      this.setState({
-        displayName: result.data.data[0].team_display_name,
-        avi: result.data.data[0].thumbnail_url,
-        established: result.data.data[0].created_at,
-        creators: result.data.data[0].users
-      })
+  componentDidMount = async () => {
+    await this.fetchData()
+    this.state.creators.forEach(creator => {
+      this.fetchCreator(creator)
+    })
+  }
 
-      result.data.data[0].users.map(creator => {
-        if (creator.user_login !== 'astrogaming') {
-          const fetchCreator = async () => {
-            const info = await api.get(`https://api.twitch.tv/helix/users?login=${creator.user_login}`)
-            this.setState(prevState => ({
-              streamers: [...prevState.streamers, info.data.data[0]]
-            }))
-          }
-          fetchCreator()
-        }
-      })
+  fetchData = async () => {
+    const result = await api.get('https://api.twitch.tv/helix/teams?name=astro')
+    console.log(result.data.data[0])
+    this.setState({
+      displayName: result.data.data[0].team_display_name,
+      avi: result.data.data[0].thumbnail_url,
+      established: result.data.data[0].created_at,
+      creators: result.data.data[0].users
+    })
+  }
 
+  fetchCreator = async (creator) => {
+    if (creator.user_login !== 'astrogaming') {
+      const result = await api.get(`https://api.twitch.tv/helix/users?login=${creator.user_login}`)
+      this.setState(prevState => ({
+        streamers: [...prevState.streamers, result.data.data[0]]
+      }))
     }
-    fetchData()
   }
 
   render() {
