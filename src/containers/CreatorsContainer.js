@@ -2,13 +2,32 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import InfiniteScroll from 'react-infinite-scroll'
 import Creator from '../components/Creator'
+import api from '../api'
 
 class CreatorsContainer extends Component {
   constructor() {
     super()
     this.state = {
-      creator: ''
+      creator: '',
+      streamers: []
     }
+  }
+
+  componentDidMount() {
+    const fetchData = async () => {
+      this.props.astro.creators.map(creator => {
+        const fetchData = async () => {
+          const info = await api.get(`https://api.twitch.tv/helix/users?login=${creator.user_login}`)
+          this.setState(prevState => ({
+            streamers: [...prevState.streamers, info.data.data[0]]
+          }))
+        }
+
+        fetchData()
+      })
+    }
+
+    fetchData()
   }
 
   handleClick = e => {
@@ -27,9 +46,9 @@ class CreatorsContainer extends Component {
         <ul>
           {this.props.astro.creators.map(creator => {
             return (
-              <div onMouseDown={this.handleClick} value={creator.user_login} key={creator.user_id}>
+              <button onClick={this.handleClick} value={creator.user_login} key={creator.user_id}>
                 {creator.user_login}
-              </div>
+              </button>
             )
           })}
         </ul>
