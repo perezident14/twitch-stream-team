@@ -43,6 +43,20 @@ class App extends Component {
         streamers: [...prevState.streamers, result.data.data[0]]
       }))
     }
+    
+    this.setState(prevState => ({
+      streamers: prevState.streamers.sort(this.alphabetize)
+    }))
+  }
+
+  alphabetize(a, b) {
+    if (a.login < b.login) {
+      return -1
+    }
+    if (a.login > b.login) {
+      return 1
+    }
+    return 0
   }
 
   render() {
