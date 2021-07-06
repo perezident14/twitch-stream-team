@@ -5,7 +5,7 @@ import api from './api'
 import Header from './components/Header'
 import Games from './components/Games'
 import Live from './components/Live'
-import CreatorsContainer from './containers/CreatorsContainer'
+import StreamersContainer from './containers/StreamersContainer'
 import Contact from './components/Contact'
 
 class App extends Component {
@@ -51,7 +51,7 @@ class App extends Component {
         <Header />
         <Route exact path='/' component={() => <Games astro={this.state} />} />
         <Route exact path='/live' component={Live} />
-        <Route exact path='/creators' component={() => <CreatorsContainer astro={this.state} />} />
+        <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
         <Route exact path='/contact' component={Contact} />
       </Router>
     )

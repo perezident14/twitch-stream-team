@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Creator from '../components/Creator'
+import StreamerCard from '../components/StreamerCard'
 
 class CreatorsContainer extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class CreatorsContainer extends Component {
         <ul>
           {this.props.astro.streamers.map(streamer => {
             return (
-              <Creator streamer={streamer} />
+              <StreamerCard streamer={streamer} />
             )
           })}
         </ul>
