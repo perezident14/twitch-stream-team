@@ -8,7 +8,6 @@ class CreatorsContainer extends Component {
   constructor() {
     super()
     this.state = {
-      creator: '',
       streamers: []
     }
   }
@@ -16,26 +15,22 @@ class CreatorsContainer extends Component {
   componentDidMount() {
     const fetchData = async () => {
       this.props.astro.creators.map(creator => {
-        const fetchData = async () => {
-          const info = await api.get(`https://api.twitch.tv/helix/users?login=${creator.user_login}`)
-          this.setState(prevState => ({
-            streamers: [...prevState.streamers, info.data.data[0]]
-          }))
+        if (creator.user_login !== 'astrogaming') {
+          const fetchCreator = async () => {
+            const info = await api.get(`https://api.twitch.tv/helix/users?login=${creator.user_login}`)
+            this.setState(prevState => ({
+              streamers: [...prevState.streamers, info.data.data[0]]
+            }))
+          }
+          fetchCreator()
         }
-
-        fetchData()
       })
     }
-
     fetchData()
   }
 
   handleClick = e => {
     console.log(e.currentTarget.value)
-
-    this.setState({
-      creator: e.target.value
-    })
   }
 
   render() {
@@ -44,11 +39,15 @@ class CreatorsContainer extends Component {
         <h1>{this.props.astro.displayName}</h1>
 
         <ul>
-          {this.props.astro.creators.map(creator => {
+          {this.state.streamers.map(streamer => {
             return (
-              <button onClick={this.handleClick} value={creator.user_login} key={creator.user_id}>
-                {creator.user_login}
-              </button>
+              // <Creator streamer={streamer} />
+              <div onClick={this.handleClick} value={streamer.login} key={streamer.id}>
+                <h3>{streamer.display_name}</h3>
+                <p>{streamer.broadcaster_type}</p>
+                <p>{streamer.description}</p>
+                <img src={streamer.profile_image_url} alt={streamer.login} />
+              </div>
             )
           })}
         </ul>

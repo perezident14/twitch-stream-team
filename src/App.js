@@ -16,6 +16,7 @@ class App extends Component {
     avi: '',
     established: '',
     creators: [],
+    streamers: []
   }
 
   componentDidMount() {
@@ -28,6 +29,19 @@ class App extends Component {
         established: result.data.data[0].created_at,
         creators: result.data.data[0].users
       })
+
+      result.data.data[0].users.map(creator => {
+        if (creator.user_login !== 'astrogaming') {
+          const fetchCreator = async () => {
+            const info = await api.get(`https://api.twitch.tv/helix/users?login=${creator.user_login}`)
+            this.setState(prevState => ({
+              streamers: [...prevState.streamers, info.data.data[0]]
+            }))
+          }
+          fetchCreator()
+        }
+      })
+
     }
     fetchData()
   }
