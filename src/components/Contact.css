@@ -1,0 +1,24 @@
+.contact-container {
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-info > h3 {
+  margin: 5px;
+}
+
+.contact-info > a {
+  text-decoration: none;
+  color: black;
+}
