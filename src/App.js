@@ -62,6 +62,10 @@ class App extends Component {
         <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
         <Route exact path='/shop' component={() => { window.location.href = 'https://astrogaming.com/'; return null; }} />
         <Route exact path='/contact' component={Contact} />
+
+        <Route exact path='/twitch' component={() => { window.location.href = 'https://twitch.tv/team/astro'; return null; }} />
+        <Route exact path='/twitter' component={() => { window.location.href = 'https://twitter.com/thecollective'; return null; }} />
+
         <Footer astro={this.state} />
       </Router>
     )
