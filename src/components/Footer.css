@@ -1,0 +1,35 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: black;
+  color: white;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 15px auto;
+}
+
+.established {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0 10px 0;
+}
+
+.established > h4 {
+  margin: 3px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px auto;
+  max-width: 200px;
+  font-size: 1.5rem;
+}
+
+.social-icon-link {
+  color: white;
+  margin: 10px;
+}

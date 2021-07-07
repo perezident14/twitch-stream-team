@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import StreamersContainer from './containers/StreamersContainer'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 class App extends Component {
   
@@ -61,6 +62,7 @@ class App extends Component {
         <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
         <Route exact path='/shop' component={() => { window.location.href = 'https://astrogaming.com/'; return null; }} />
         <Route exact path='/contact' component={Contact} />
+        <Footer astro={this.state} />
       </Router>
     )
   }
