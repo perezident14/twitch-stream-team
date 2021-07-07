@@ -18,7 +18,7 @@ class CreatorsContainer extends Component {
         <div className='streamer-cards'>
           {this.props.astro.streamers.sort().map(streamer => {
             return (
-              <StreamerCard streamer={streamer} />
+              <StreamerCard streamer={streamer} key={streamer.id} />
             )
           })}
         </div>

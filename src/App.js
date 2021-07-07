@@ -30,7 +30,7 @@ class App extends Component {
     this.setState({
       displayName: result.data.data[0].team_display_name,
       avi: result.data.data[0].thumbnail_url,
-      established: result.data.data[0].created_at,
+      established: result.data.data[0].created_at.slice(0,4),
       creators: result.data.data[0].users
     })
   }

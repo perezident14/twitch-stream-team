@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import './Header.css'
 
 function Header(props) {
@@ -12,18 +11,9 @@ function Header(props) {
         </Link>
 
         <ul className='nav-menu'>
-          <li className='nav-item'>
-            <Link to='/live' className='nav-link'>Live</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/streamers' className='nav-link'>Streamers</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/shop' className='nav-link'>Shop</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/contact' className='nav-link'>Contact</Link>
-          </li>
+          <Link to='/streamers' className='nav-link'>Streamers</Link>
+          <Link to='/shop' className='nav-link'>Shop</Link>
+          <Link to='/contact' className='nav-link'>Contact</Link>
         </ul>
       </div>
     </nav>
