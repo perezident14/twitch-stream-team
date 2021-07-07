@@ -4,7 +4,6 @@ import api from './api'
 
 import Header from './components/Header'
 import Home from './components/Home'
-import Live from './components/Live'
 import StreamersContainer from './containers/StreamersContainer'
 import Contact from './components/Contact'
 
@@ -59,8 +58,8 @@ class App extends Component {
       <Router>
         <Header astro={this.state} />
         <Route exact path='/' component={() => <Home astro={this.state} />} />
-        <Route exact path='/live' component={Live} />
         <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
+        <Route exact path='/shop' component={() => { window.location.href = 'https://astrogaming.com/'; return null; }} />
         <Route exact path='/contact' component={Contact} />
       </Router>
     )
