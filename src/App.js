@@ -23,7 +23,6 @@ class App extends Component {
     this.state.creators.forEach(creator => {
       this.fetchCreator(creator)
     })
-    console.log(process.env.PUBLIC_URL)
   }
 
   fetchData = async () => {
