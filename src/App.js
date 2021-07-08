@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import api from './api'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import api from './Api'
 
 import Header from './components/Header'
 import Home from './components/Home'
@@ -58,14 +58,15 @@ class App extends Component {
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <Header astro={this.state} />
-        <Route exact path='/' component={() => <Home astro={this.state} />} />
-        <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
-        <Route exact path='/shop' component={() => { window.location.href = 'https://astrogaming.com/'; return null; }} />
-        <Route exact path='/contact' component={Contact} />
+        <Switch>
+          <Route exact path='/' component={() => <Home astro={this.state} />} />
+          <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
+          <Route exact path='/shop' component={() => { window.location.href = 'https://astrogaming.com/'; return null; }} />
+          <Route exact path='/contact' component={Contact} />
 
-        <Route exact path='/twitch' component={() => { window.location.href = 'https://twitch.tv/team/astro'; return null; }} />
-        <Route exact path='/twitter' component={() => { window.location.href = 'https://twitter.com/thecollective'; return null; }} />
-
+          <Route exact path='/twitch' component={() => { window.location.href = 'https://twitch.tv/team/astro'; return null; }} />
+          <Route exact path='/twitter' component={() => { window.location.href = 'https://twitter.com/thecollective'; return null; }} />
+        </Switch>
         <Footer astro={this.state} />
       </Router>
     )
