@@ -23,6 +23,7 @@ class App extends Component {
     this.state.creators.forEach(creator => {
       this.fetchCreator(creator)
     })
+    console.log(process.env.PUBLIC_URL)
   }
 
   fetchData = async () => {
@@ -56,7 +57,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Header astro={this.state} />
         <Route exact path='/' component={() => <Home astro={this.state} />} />
         <Route exact path='/streamers' component={() => <StreamersContainer astro={this.state} />} />
