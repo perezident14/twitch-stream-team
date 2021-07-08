@@ -12,7 +12,8 @@ function Header(props) {
 
         <ul className='nav-menu'>
           <Link to='/streamers' className='nav-link'>Streamers</Link>
-          <Link to='/shop' target='_blank' rel='noopener noreferrer' className='nav-link'>Shop</Link>
+          <a href='https://astrogaming.com' target='_blank' rel='noopener noreferrer' className='nav-link'>Shop</a>
+          {/* <Link to='/shop' target='_blank' rel='noopener noreferrer' className='nav-link'>Shop</Link> */}
           <Link to='/contact' className='nav-link'>Contact</Link>
         </ul>
       </div>
