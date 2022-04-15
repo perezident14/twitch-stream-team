@@ -1,12 +1,11 @@
-import axios from 'axios'
-
-let API_KEY = 'o59cafuz33azcvoshbbu883lafaceu'
+import axios from 'axios';
+require('dotenv').config();
 
 let api = axios.create({
   headers: {
-    'Client-ID' : API_KEY,
-    'Authorization' : 'Bearer vvnrnogruz5vygl54l6smofympmd97'
+    'Client-ID': process.env.REACT_APP_API_KEY,
+    'Authorization': process.env.REACT_APP_API_AUTH
   }
-})
+});
 
-export default api
+export default api;
